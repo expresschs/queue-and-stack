@@ -43,6 +43,11 @@ int stack_get_size(stack_type *s)
     return s->head;
 }
 
+int stack_get_empty(stack_type *s)
+{
+    return s->itemcount - s->head;
+}
+
 int stack_peek(stack_type *s, void *data)
 {
     int ret = 1;

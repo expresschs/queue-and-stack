@@ -22,7 +22,8 @@ static __inline int queue_is_full(queue_type *q)
 void queue_init(queue_type *q, uint8_t *buf, uint16_t itemsize, uint16_t itemcount);
 int queue_put(queue_type *q, void *data);
 int queue_get(queue_type *q, void *data);
-int qeueu_get_size(queue_type *q);
+int queue_get_size(queue_type *q);
+int queue_get_empty(queue_type *q);
 int queue_peek(queue_type *q, void *data);
 
 #endif // _QUEUE_H_

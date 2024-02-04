@@ -28,6 +28,7 @@ void test_queue(void)
 {
     node tmp_node;
     int size;
+    int free;
 
     printf("......queue test......\n\r");
     queue_init(&g_queue, g_queue_buf, QUEUE_SIZE, QUEUE_COUNT);
@@ -53,8 +54,11 @@ void test_queue(void)
         printf("put node4 error!\n\r");
     }
     /* get queue size */
-    size = qeueu_get_size(&g_queue);
+    size = queue_get_size(&g_queue);
     printf("queue size:%d \n\r", size);
+    /* get queue free */
+    free = queue_get_empty(&g_queue);
+    printf("queue free:%d \n\r", free);
     /* get object form queue */
     if (0 == queue_get(&g_queue, &tmp_node)) {
         printf("get node ok, a:%d b:%d c:%d\n\r", tmp_node.a, tmp_node.b, tmp_node.c);
@@ -77,14 +81,18 @@ void test_queue(void)
         printf("get node error!\n\r");
     }
     /* get queue size */
-    size = qeueu_get_size(&g_queue);
+    size = queue_get_size(&g_queue);
     printf("queue size:%d \n\r", size);
+    /* get queue free */
+    free = queue_get_empty(&g_queue);
+    printf("queue free:%d \n\r", free);
 }
 
 void test_stack(void)
 {
     node tmp_node;
     int size;
+    int free;
 
     printf("......stack test......\n\r");
     stack_init(&g_stack, g_stack_buf, STACK_SIZE, STACK_COUNT);
@@ -112,6 +120,9 @@ void test_stack(void)
     /* get stack size */
     size = stack_get_size(&g_stack);
     printf("stack size:%d \n\r", size);
+    /* get stack free */
+    free = stack_get_empty(&g_stack);
+    printf("stack free:%d \n\r", free);
     /* get object form stack */
     if (0 == stack_get(&g_stack, &tmp_node)) {
         printf("get node ok, a:%d b:%d c:%d\n\r", tmp_node.a, tmp_node.b, tmp_node.c);
@@ -136,6 +147,9 @@ void test_stack(void)
     /* get queue size */
     size = stack_get_size(&g_stack);
     printf("stack size:%d \n\r", size);
+    /* get stack free */
+    free = stack_get_empty(&g_stack);
+    printf("stack free:%d \n\r", free);
 }
 
 int main(void)

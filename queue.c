@@ -45,7 +45,7 @@ int queue_get(queue_type *q, void *data)
     return ret;
 }
 
-int qeueu_get_size(queue_type *q)
+int queue_get_size(queue_type *q)
 {
     int size;
 
@@ -57,6 +57,20 @@ int qeueu_get_size(queue_type *q)
 
     return size;
 }
+
+int queue_get_empty(queue_type *q)
+{
+    int size;
+
+    if (q->head >= q->tail) {
+        size = q->itemcount - q->head + q->tail;
+    } else {
+        size = q->tail - q->head;
+    }
+
+    return size - 1;
+}
+
 
 int queue_peek(queue_type *q, void *data)
 {

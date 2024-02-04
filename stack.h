@@ -22,6 +22,7 @@ void stack_init(stack_type *q, uint8_t *buf, uint16_t itemsize, uint16_t itemcou
 int stack_put(stack_type *q, void *data);
 int stack_get(stack_type *q, void *data);
 int stack_get_size(stack_type *q);
+int stack_get_empty(stack_type *s);
 int stack_put(stack_type *q, void *data);
 
 
